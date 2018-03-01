@@ -1,8 +1,9 @@
 <a routerLink="/contacts">Contacts</a>
 <nav>
-    <li *ngFor="let contact of contacts">
-        <a routerLink="/detail/{{contact.id}}">{{ contact.name }}</a>
-    </li>
+    <ul>
+        <li *ngFor="let contact of contacts">
+            <a routerLink="/detail/{{contact.id}}">{{ contact.name }}</a>
+        </li>
+    </ul>
 </nav>
-
 <router-outlet></router-outlet>
