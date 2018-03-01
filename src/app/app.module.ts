@@ -6,17 +6,21 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { DetailComponent } from './detail/detail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routesConfig: Routes = [
   { path: 'contacts', component: ContactsComponent },
   { path: 'detail', component: DetailComponent },
+  { path: '', redirectTo: '/contacts', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactsComponent,
-    DetailComponent
+    DetailComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
