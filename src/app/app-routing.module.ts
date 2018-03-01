@@ -11,7 +11,6 @@ const routesConfig: Routes = [
     { path: '', redirectTo: '/contacts', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent },
 ];
-
 @NgModule({
     declarations: [
         ContactsComponent,

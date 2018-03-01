@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { CONTACTS, Contact } from '../contacts';
 
 @Component({
@@ -10,13 +11,19 @@ import { CONTACTS, Contact } from '../contacts';
 
 export class DetailComponent implements OnInit {
   contact: Contact;
-  constructor(private route: ActivatedRoute) { }
-  
+  constructor(
+    private activateRoute: ActivatedRoute,
+    private router: Router,
+    private location: Location
+  ) { }
   ngOnInit() {
-    this.route.paramMap.subscribe(paramMap => {
+    this.activateRoute.paramMap.subscribe(paramMap => {
       const id = paramMap.get('id');
       this.contact = CONTACTS.find(c => c.id === id);
     });
   }
-
+  goBack() {
+    // this.router.navigate(['/contacts']);
+    this.location.back();
+  }
 }
